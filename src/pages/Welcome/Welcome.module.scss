@@ -1,0 +1,8 @@
+@import '../../styles/colors.scss';
+
+.welcome {
+  & > h1 {
+    // font
+    text-align: center;
+  }
+}

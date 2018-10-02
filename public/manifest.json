@@ -1,0 +1,9 @@
+{
+  "short_name": "Rocket Game",
+  "name": "Rocket Game",
+  "icons": [],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#0B3C49",
+  "background_color": "#ffffff"
+}

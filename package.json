@@ -1,0 +1,64 @@
+{
+  "name": "rocketgame",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "node-sass": "^4.9.3",
+    "prop-types": "^15.6.2",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "ci": "cross-env CI=true BROWSER=false concurrently \"npm:test\" \"npm:test:e2e\"",
+    "test": "react-scripts test --env=jsdom",
+    "test:e2e": "start-server-and-test start 3000 test:cypress",
+    "test:cypress": "cypress run",
+    "lint": "concurrently \"npm:lint:*\"",
+    "lint:js": "eslint --fix ./src/**/*.js",
+    "lint:css": "stylelint **/*.{css,scss}",
+    "test:staged": "cross-env CI=true react-scripts test --env=jsdom --findRelatedTests"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add",
+      "npm run test:staged"
+    ],
+    "*.scss": [
+      "stylelint"
+    ]
+  },
+  "devDependencies": {
+    "concurrently": "^4.0.1",
+    "cross-env": "^5.2.0",
+    "cypress": "^3.1.0",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-cypress": "^2.0.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
+    "husky": "^1.1.0",
+    "lint-staged": "^7.3.0",
+    "start-server-and-test": "^1.7.1",
+    "stylelint": "^9.6.0",
+    "stylelint-config-recommended-scss": "^3.2.0",
+    "stylelint-scss": "^3.3.1"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
